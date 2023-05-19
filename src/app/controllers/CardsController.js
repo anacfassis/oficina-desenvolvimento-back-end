@@ -10,27 +10,58 @@ class CardsController {
   }
 
   async list(request, response) {
-    /**
-     * @todo list all cards
-     */
+   try {
+      const card = await cards.find();
+      response.json(card);
+   } catch (error) {
+     response.json({erro: "Erro ao listar os cards"});
+   }
   }
 
   async create(request, response) {
-    /**
-     * @todo create a card
-     */
-  }
+   const { name, type, desc, atk, def } = request.body;
+    const card = {
+    name,
+    type,
+    desc,
+    atk,
+    def,
+    };
+    try {
+    const restult = await cards.create(card);
+    return response.json(restult);
+    } catch (erro) {
+    return response.json({ erro: "Erro ao criar card" });
+    }
+    }
 
   async update(request, response) {
-    /**
-     * @todo update an specific card
-     */
+    const { id } = request.params;
+    const { name, type, desc, atk, def } = request.body;
+    const updatedCard = {
+    name,
+    type,
+    desc,
+    atk,
+    def,
+    };
+    try {
+      const restult = await cards.update(id, updatedCard);
+      return response.json(restult);
+      } catch (erro) {
+      return response.json({ erro: "Erro ao atualizar card" });
+      }
   }
 
   async delete(request, response) {
-    /**
-     * @todo delete an specific card
-     */
-  }
+    
 }
+
+
+async show(request, response) {
+ 
+}
+
 module.exports = new CardsController();
+
+
