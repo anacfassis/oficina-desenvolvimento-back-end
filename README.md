@@ -10,4 +10,5 @@ Projeto criado a partir da minha participação em uma oficina que tinha como ob
 O objetivo do projeto era criar uma REST API utilizando as ferramentas citadas acima, baseada no jogo de cartas Yu-Gi-Oh!
 
 Ministrante da Oficina: Caio Campos - Frontend Engineer - https://github.com/CampossCaio
+
 Parceria: PucMinas Betim
